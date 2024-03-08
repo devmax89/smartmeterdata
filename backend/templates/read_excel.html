@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+        <title>Read Excel</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">Excel Data Gen</a>
+        </nav>
+        <div class="container text-center">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-warning">
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+            <div class="d-flex flex-column align-items-center mt-5 vh-50">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="excelFile" name="file" accept=".xls,.xlsx">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-50 mt-3">Upload</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
